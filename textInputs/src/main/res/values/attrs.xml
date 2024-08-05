@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="DesignToolbar">
+        <attr name="toolbar_title" format="string"/>
+        <attr name="toolbar_type" format="integer"/>
+        <attr name="toolbar_icon" format="integer"/>
+
+    </declare-styleable>
+
+</resources>
