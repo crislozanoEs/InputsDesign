@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("maven-publish")
 }
 
 android {
@@ -29,7 +30,41 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
 }
+//Can be obtain by
+// val githubProperties = Properties()
+// githubProperties.load(FileInputStream(rootProject.file("github.properties")))
+
+
+publishing {
+    publications {
+        register<MavenPublication>("release"){
+            groupId = "com.globaldesign"
+            artifactId = "textInputs"
+            version = "0.0.1"
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            name = "GithubPackages"
+            url = uri("https://maven.pkg.github.com/crislozanoEs/InputsDesign")
+            credentials {
+                // Can be used
+                // githubProperties.getProperty("username")
+                // System.getenv("GITHUB_USERNAME")
+                username = "crisLozanoEs"
+                password = "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"
+            }
+        }
+    }
+}
+
 
 dependencies {
 
