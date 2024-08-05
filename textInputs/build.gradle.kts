@@ -57,9 +57,10 @@ publishing {
             credentials {
                 // Can be used
                 // githubProperties.getProperty("username")
+                //"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"
                 // System.getenv("GITHUB_USERNAME")
-                username = "crisLozanoEs"
-                password = "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"
+                username = System.getenv("GITHUB_USERNAME")
+                password = System.getenv("GITHUB_TOKEN")
             }
         }
     }
