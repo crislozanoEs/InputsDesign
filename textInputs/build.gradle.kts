@@ -6,6 +6,7 @@ plugins {
 
 android {
     namespace = "com.globaldesign.textinputs"
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 24
@@ -24,11 +25,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
 
 }
@@ -41,7 +42,7 @@ publishing {
     publications {
         register<MavenPublication>("release"){
             groupId = "com.globaldesign"
-            artifactId = "textInputs"
+            artifactId = "textinputs"
             version = "0.0.1"
 
             afterEvaluate {
@@ -57,6 +58,7 @@ publishing {
             credentials {
                 // Can be used
                 // githubProperties.getProperty("username")
+                //
                 // System.getenv("GITHUB_USERNAME")
                 username = System.getenv("GITHUB_USERNAME")
                 password = System.getenv("GITHUB_TOKEN")
